@@ -6,7 +6,7 @@
 #include<time.h>
 #include<stdio.h>
 #include<thread>
-#include</home/pi/Sonodot/Kalman/Kalman_3D.cpp>
+//#include</home/pi/Sonodot/Kalman/Kalman_3D.cpp>
 #include<fstream>
 #define PIN 29
 #include<chrono>
@@ -28,7 +28,7 @@ int main()
  receiver6.init();
  receiver7.init();
  receiver8.init();
- ofstream data;
+ std::ofstream data;
  data.open ("data.txt");
  printf("activating emitter\n");
  mySwitch.send(code,24);

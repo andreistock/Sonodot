@@ -66,25 +66,22 @@ class receiver
       digitalWrite(trigPin,HIGH);
       delayMicroseconds(14);
       digitalWrite(trigPin,LOW);
-      gettimeofday(&start1,NULL);
+      gettimeofday(%start1,NULL);
       while (digitalRead(echoPin)==0)
       {
         gettimeofday(&start,NULL);
-        seconds=start.tv_sec-start1.tv_sec;
-        useconds=start.tv_usec-start1.tv_usec;
-        duration=((useconds)*1000+seconds/1000.0)+0.5;
-        if (duration/2 >= 10000000)
-        //   distance =0;
-          break;
+         
       }
       while (digitalRead(echoPin)==1)
       {
         gettimeofday(&end,NULL);
         seconds=end.tv_sec-start.tv_sec;
         useconds=end.tv_usec-start.tv_usec;
+        duration=((useconds)*1000+seconds/1000.0)+0.5;seconds=end.tv_sec-start.tv_sec;
+        useconds=end.tv_usec-start.tv_usec;
         duration=((useconds)*1000+seconds/1000.0)+0.5;  
-        if (duration/2 >10000000)
-          break;
+        if (duration/2 >=10000000)
+	  break;
       }
       seconds=end.tv_sec-start.tv_sec;
       useconds=end.tv_usec-start.tv_usec;
