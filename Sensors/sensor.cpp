@@ -36,7 +36,7 @@ int main()
  seconds=end.tv_sec-start.tv_sec;
  useconds=end.tv_usec-start.tv_usec;
  duration=((useconds)*1000+seconds/1000.0)+0.5;
- data<<duration<<"\n";
+// data<<duration<<"\n";
  delay(50);//duration/2000000.0);
  }
 return 0;
