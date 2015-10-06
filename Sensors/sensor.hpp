@@ -81,13 +81,16 @@ class receiver
           goto mylabel;
           }
       }
+      duration=0;
+      useconds=0;
+      seconds=0;
       while (digitalRead(echoPin)==1)
       {
         gettimeofday(&end,NULL);
         seconds=end.tv_sec-start.tv_sec;
         useconds=end.tv_usec-start.tv_usec;
         duration=((useconds)*1000+seconds/1000.0)+0.5;  
-        if (duration/2 >10000000)
+        if (duration/2 >20000000)
           {
           distance=0.2;
           goto mylabel;
@@ -100,6 +103,8 @@ class receiver
       }
       else
       {
+      duration=0;
+      distance=0;
       seconds=end.tv_sec-start.tv_sec;
       useconds=end.tv_usec-start.tv_usec;
       duration=((useconds)*1000+seconds/1000.0)+0.5;
@@ -107,6 +112,7 @@ class receiver
 //      std::cout<<distance<<"  e"<<std::endl; 
 //      std::cout<<duration/2<<std::endl;
       return distance;
+      
       }
     }
 };

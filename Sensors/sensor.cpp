@@ -24,6 +24,7 @@ int main()
 
  while (true)
  {
+ duration=0;
  gettimeofday(&start,NULL);
 // mySwitch.send(code,24);
  receiver1.dst();
@@ -31,11 +32,12 @@ int main()
 // receiver3.dst();
  data<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<std::endl;
  gettimeofday(&end,NULL);
+// data<<end.tv_usec<<"\n";
  seconds=end.tv_sec-start.tv_sec;
  useconds=end.tv_usec-start.tv_usec;
  duration=((useconds)*1000+seconds/1000.0)+0.5;
-
- delay(50);
+ data<<duration<<"\n";
+ delay(50);//duration/2000000.0);
  }
 return 0;
 }
