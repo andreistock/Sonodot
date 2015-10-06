@@ -25,29 +25,24 @@ int main()
 
  while (true)
  {
-// auto begin = std::chrono::high_resolution_clock::now();
-////////////////////////////////////////////////////////////////////////////////////
-// mySwitch.send(code,24);
+ auto begin = std::chrono::high_resolution_clock::now();
+////////////////////////////////////////////////////////////////////////////////
+ mySwitch.send(code,24);
  receiver1.dst();
 // receiver2.dst();
 // receiver3.dst();
  data<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<std::endl;
+
 ////////////////////////////////////////////////////////////////////////////////
-// auto end = std::chrono::high_resolution_clock::now(); 
+ auto end = std::chrono::high_resolution_clock::now(); 
 
 // data<<end.tv_usec<<"\n";
-// duration2 = std::chrono::duration_cast <std::chrono::nanoseconds>(end-begin).count();
- tsleep.tv_nsec=50000000;//-duration2;
- nanosleep(&tsleep,NULL);
-// i++;
-// if (i=20)
-// {
-// mySwitch.send(code,24);
-// i=0;
-// }
-// auto end2 = std::chrono::high_resolution_clock::now();
-// duration1 = std::chrono::duration_cast <std::chrono::nanoseconds>(end2-begin).count();
-// data<<duration1<<"\n";
+ duration2 = std::chrono::duration_cast <std::chrono::nanoseconds>(end-begin).count();
+// tsleep.tv_nsec=50000000-duration2;
+// nanosleep(&tsleep,NULL);
+ auto end2 = std::chrono::high_resolution_clock::now();
+ duration1 = std::chrono::duration_cast <std::chrono::nanoseconds>(end2-begin).count();
+ data<<duration1<<"\n";
  }
 return 0;
 }

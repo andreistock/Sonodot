@@ -3,7 +3,7 @@
 #include <stdlib.h>
 int main()
 {
- int PIN=25;
+ int PIN=29;
  int code=5;
  if (wiringPiSetup () == -1) return 1;
  printf("sending code[%i]\n", code);
