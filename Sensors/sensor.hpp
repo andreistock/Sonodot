@@ -61,6 +61,8 @@ class receiver
     }
     double dst()
     {
+      distance=0;
+//      duration=0;
       digitalWrite(trigPin,LOW);
       delayMicroseconds(2);
       digitalWrite(trigPin,HIGH);
@@ -73,9 +75,11 @@ class receiver
         seconds=start.tv_sec-start1.tv_sec;
         useconds=start.tv_usec-start1.tv_usec;
         duration=((useconds)*1000+seconds/1000.0)+0.5;
-        if (duration/2 >= 10000000)
-        //   distance =0;
-          break;
+        if (duration/2 >= 1000000)
+          {
+          distance=0.1;
+          goto mylabel;
+          }
       }
       while (digitalRead(echoPin)==1)
       {
@@ -84,8 +88,18 @@ class receiver
         useconds=end.tv_usec-start.tv_usec;
         duration=((useconds)*1000+seconds/1000.0)+0.5;  
         if (duration/2 >10000000)
-          break;
+          {
+          distance=0.2;
+          goto mylabel;
+          }
       }
+      mylabel :
+      if ((distance==0.1)||(distance==0.2))
+      {
+      return distance;
+      }
+      else
+      {
       seconds=end.tv_sec-start.tv_sec;
       useconds=end.tv_usec-start.tv_usec;
       duration=((useconds)*1000+seconds/1000.0)+0.5;
@@ -93,6 +107,6 @@ class receiver
 //      std::cout<<distance<<"  e"<<std::endl; 
 //      std::cout<<duration/2<<std::endl;
       return distance;
-      
+      }
     }
 };

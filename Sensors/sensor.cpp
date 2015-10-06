@@ -29,7 +29,7 @@ int main()
  receiver1.dst();
 // receiver2.dst();
 // receiver3.dst();
- data<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<std::endl;
+ std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<std::endl;
  gettimeofday(&end,NULL);
  seconds=end.tv_sec-start.tv_sec;
  useconds=end.tv_usec-start.tv_usec;
