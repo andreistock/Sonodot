@@ -1,17 +1,17 @@
 #include "sensor.hpp"
 #include<iostream>
-using namespace std;
 int main()
 {
- std::cout<<"helo";
- double distance1; 
- receiver receiver(1);
+ std::cout<<"helo"<<std::endl;
+ double distance1;
+ receiver receiver(2);
  receiver.init();
- while(true)
-{
+ while (true)
+ {
  distance1=receiver.dst();
  std::cout<<distance1<<std::endl;
- delayMicroseconds(1000000);
-} 
+ delayMicroseconds(100000);
+ }
+ return 0;
 }
 
