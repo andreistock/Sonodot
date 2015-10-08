@@ -1,6 +1,5 @@
 #include "RCSwitch.h"
 #include<iostream>
-#include<wiringPi.h>
 #include<sys/time.h>
 #include<stdio.h>
 using namespace std;

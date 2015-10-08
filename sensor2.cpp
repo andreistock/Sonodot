@@ -1,16 +1,25 @@
 #include "sensor.hpp"
 #include<iostream>
+#include<sys/time.h>
+#include<stdio.h>
+#define PIN 29
 int main()
 {
- std::cout<<"helo"<<std::endl;
- double distance1;
- receiver receiver(2);
- receiver.init();
+ int code=5;
+ RCSwitch mySwitch = RCSwitch();
+ mySwitch.enableTransmit(PIN);
+ double distance1,distance2;
+ receiver receiver1(1),receiver2(2);
+ receiver1.init();
+ receiver2.init();
+ printf("activating emitter");
+ mySwitch.send(code,24);
  while (true)
  {
- distance1=receiver.dst();
- std::cout<<distance1<<std::endl;
- delayMicroseconds(100000);
+ distance1=receiver1.dst();
+ distance2=receiver2.dst();
+ std::cout<<distance1<<"  "<<distance2<<std::endl;
+ delay(50);
  }
  return 0;
 }

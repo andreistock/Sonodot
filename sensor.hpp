@@ -1,12 +1,13 @@
 #include "RCSwitch.h"
 #include<sys/time.h>
 #include<iostream>
+#include<stdio.h>
 class receiver
 {
   protected:
-    long trigPin;
-    long echoPin;
-    struct timeval start,end;
+    int trigPin;
+    int echoPin;
+    timeval start,end;
     double duration,seconds,useconds;
   public:
     double distance; 
@@ -45,36 +46,26 @@ class receiver
       if (wiringPiSetup()==-1) std::cout<<"fuck you"<<std::endl;      
       pinMode(echoPin,INPUT);
       pinMode(trigPin,OUTPUT);
-      std::cout<<echoPin<<trigPin<<std::endl;
     }
     double dst()
     {
       digitalWrite(trigPin,LOW);
       delayMicroseconds(2);
       digitalWrite(trigPin,HIGH);
-      delayMicroseconds(10);
+      delayMicroseconds(14);
       digitalWrite(trigPin,LOW);
-      while (true)
+      while (digitalRead(echoPin)==0)
       {
-        if (digitalRead(echoPin==0))
-        {
-          gettimeofday(&start,NULL);
-          break;
-        }
+        gettimeofday(&start,NULL);
       }
-      while (true) 
+      while (digitalRead(echoPin)==1)
       {
-        if (digitalRead(echoPin)==1)
-        {
-          gettimeofday(&end,NULL);
-          break; 
-        }
+        gettimeofday(&end,NULL); 
       }
       seconds=end.tv_sec-start.tv_sec;
       useconds=end.tv_usec-start.tv_usec;
-      duration==((useconds)*1000+seconds/1000.0)+0.3;
-      distance=duration/29.1;
+      duration=((useconds)*1000+seconds/1000.0)+0.5;
+      distance=(duration)/(29.1*2);
       return distance;
     }
 };
-
