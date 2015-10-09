@@ -26,7 +26,7 @@ class receiver
         break;
       case 3 :
         trigPin=26;
-        echoPin=25;
+        echoPin=22;
         break;
       case 4 :
         trigPin=27;
