@@ -14,12 +14,13 @@ int main()
  receiver2.init();
  printf("activating emitter");
  mySwitch.send(code,24);
+ delay(2);
  while (true)
  {
  distance1=receiver1.dst();
- distance2=receiver2.dst();
+// distance2=receiver2.dst();
  std::cout<<distance1<<"  "<<distance2<<std::endl;
- delay(50);
+ delay(100);
  }
  return 0;
 }
