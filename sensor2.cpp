@@ -2,13 +2,13 @@
 #include<iostream>
 #include<sys/time.h>
 #include<stdio.h>
+#include<thread>
 #define PIN 29
 int main()
 {
  int code=5;
  RCSwitch mySwitch = RCSwitch();
  mySwitch.enableTransmit(PIN);
- double distance1,distance2;
  receiver receiver1(1),receiver2(2);
  receiver1.init();
  receiver2.init();
@@ -17,10 +17,12 @@ int main()
  delay(2);
  while (true)
  {
- distance1=receiver1.dst();
-// distance2=receiver2.dst();
- std::cout<<distance1<<"  "<<distance2<<std::endl;
- delay(100);
+ std::thread t1(&receiver::dst,&receiver1);
+ std::thread t2(&receiver::dst,&receiver2);
+ t1.join();
+ t2.join();
+ std::cout<<receiver1.distance<<"  "<<receiver2.distance<<std::endl;
+ delay(50);
  }
  return 0;
 }
