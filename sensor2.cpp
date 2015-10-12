@@ -6,7 +6,7 @@
 #define PIN 29
 int main()
 {
- int code=5;
+ int code=5,i=0;
  RCSwitch mySwitch = RCSwitch();
  mySwitch.enableTransmit(PIN);
  receiver receiver1(1),receiver2(2),receiver3(3);
@@ -18,13 +18,14 @@ int main()
  delay(2);
  while (true)
  {
+ i++;
  std::thread t1(&receiver::dst,&receiver1);
  std::thread t2(&receiver::dst,&receiver2);
  std::thread t3(&receiver::dst,&receiver3);
  t1.join();
  t2.join();
  t3.join();
- std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<std::endl;
+ std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
  delay(50);
  }
  return 0;

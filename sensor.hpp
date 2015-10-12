@@ -18,7 +18,7 @@ class receiver
       case 1 :
         trigPin=1;
         echoPin=0;
-        std::cout<<trigPin<<echoPin<<std::endl;
+//        std::cout<<trigPin<<echoPin<<std::endl;
         break;
       case 2 :
         trigPin=4;
