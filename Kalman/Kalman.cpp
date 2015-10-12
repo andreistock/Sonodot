@@ -1,4 +1,5 @@
-//MTMCC assignement Conjugate Gradient. Niccolo Corsini
+// 1D Example of Kalman filter 
+
 #include <iostream>
 #include <cmath>
 #include <fstream>
@@ -47,90 +48,5 @@ data << z << endl;
 data << x << endl;
 
 data.close();
-
-
-//x.print();
-//z.print();
-//cout << x(1) << "  " << x(2) << "   " << x(3) << "  " << x(4) << "   " << x(5) << endl;
-//cout << P(1) << "  " << P(2) << "   " << P(3) << "  " << P(4) << "   " << P(5) << endl;
-
-
-
-
-
-
-
 return 0;
 }
-
-
-
-
-/*int main(){
-int i,j,k,n,Niter;
-	cout<<"Enter the dimension of matrix"<<endl;
-	cin>>n;
-	cout<<"Enter number of iteration"<<endl;
-	cin>>Niter;
-    double el,xxx,alpha,alpha1,beta,residue,tempo,alphahat;
-    colvec g(n),p(n),b(n),X(n),X1(n),uuu(n),temp(n),vvv(n),yyy(n),zzz(n),g1(n); 
-    mat A(n,n);
-
-    cout << "Enter value for x: ";
-    cin >> xxx;
-    
-    // Generate A and b
-    b = RAND<colvec>(n);
-	X=RAND<colvec>(n);
-	X1=X;
-    A = eye<mat>(n,n);
-    el = xxx;
-    for (i=1;i<(n+1)/2;i++) {
-        for (j=0;j<n;j++) {
-            k = (i+j) % n;
-            A(j,k) = el;
-            A(k,j) = el;
-        }
-        el *= xxx;
-    }
-	
-	//Takes a first steepest descent step
-	g=A*X-b;
-	p=-g;  
-	zzz=(trans(g)*g)/(trans(g)*(A*g)); //Need to store scalar as a vector due to armadillo hitch
-	alpha=zzz(0);
-	X +=-alpha1*g;
-	
-	//Conjugate Gradient method
-	for(int i=0;i<Niter;i++){
-	    uuu=(trans(p)*g)/(trans(p)*(A*p));   
-	    alpha=uuu(0);
-		temp=trans(g)*g;
-		tempo=temp(0);
-		g=A*X-b; 
-		vvv=(trans(g)*g)/tempo;    
-		beta=vvv(0);
-		p=-g +beta*p;
-		yyy=(trans(p)*g)/(trans(p)*A*p);
-		alphahat=yyy(0);
-		X+=-alphahat*p;
-		}
-		
-	//Steepest descent method
-	for(int i=0;i<Niter;i++){
-	g=A*X1-b;                
-	zzz=(trans(g)*g)/(trans(g)*(A*g));  
-	alpha1=zzz(0);
-	X1 +=-alpha1*g;
-	
-	}
-	
-	colvec x1=solve(A,b);   //Solves using armadillo for comparison with Steepest descent and CG
-	
-	cout<<"Error in Conjugate gradient  "<<norm(x1-X,2)<<"  Error in Steepest descent  "<<norm(x1-X1,2)<<endl;
-	
-	return 0;
-	
-}
-*/	
-
