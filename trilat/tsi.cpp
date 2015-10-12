@@ -41,7 +41,7 @@ void calculate(double r1, double r2, double r3)
   disp(p_12_a);
   disp(p_12_b);
 }
-int main()
+int test()
 {
 setup();
 double cnt=10;
