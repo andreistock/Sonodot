@@ -3,9 +3,11 @@
 #include<sys/time.h>
 #include<stdio.h>
 #include<thread>
+#include "/home/pi/Sonodot/trilat/tsi.cpp"
 #define PIN 29
 int main()
 {
+ setup();
  int code=5,i=0;
  RCSwitch mySwitch = RCSwitch();
  mySwitch.enableTransmit(PIN);
@@ -15,7 +17,7 @@ int main()
  receiver3.init();
  printf("activating emitter");
  mySwitch.send(code,24);
- delay(2);
+// delay(3);
  while (true)
  {
  i++;
@@ -26,7 +28,8 @@ int main()
  t2.join();
  t3.join();
  std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
- delay(50);
+ calculate(receiver1.distance,receiver2.distance,receiver3.distance);
+ delay(25);
  }
  return 0;
 }

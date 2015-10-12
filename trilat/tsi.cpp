@@ -10,7 +10,7 @@ void setup()
   sphere2.setparam();
   sphere3.setparam();
 }
-void calculate(int r1, int r2, int r3)
+void calculate(double r1, double r2, double r3)
 {
   temp1=ominus(sphere2,sphere1);
   e_x=divide(norm(temp1),temp1);
@@ -27,7 +27,7 @@ void calculate(int r1, int r2, int r3)
   x=(pow(r1,2)-pow(r2,2)+pow(d,2))/(2*d);
   y=(pow(r1,2)-pow(r3,2)-2*i*x+pow(i,2)+pow(j,2))/(2*j);
   temp4=pow(r1,2)-pow(x,2)-pow(y,2);
-  std::cout<<temp4<<endl;
+//  std::cout<<temp4<<endl;
   if (temp4<0)
   std::cout<<"The three spheres do not intersect!";
   z=sqrt(temp4);
