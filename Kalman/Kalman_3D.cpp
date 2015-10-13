@@ -79,10 +79,5 @@ data.close();
 //return 0;
 }
 
-int main() {
-  
-  double pos_arr[3][2] = {{10.1, 1.0, 3.0}, {10.1, 1.0, 3.0}}; 
-  kalman(pos_arr); 
-  return 0;
-}
+
 

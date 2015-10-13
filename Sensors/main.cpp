@@ -33,27 +33,21 @@ int main()
  t2.join();
  t3.join();
  std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
-<<<<<<< HEAD
-// calculate(receiver1.distance,receiver2.distance,receiver3.distance);
-=======
  calculate(receiver1.distance,receiver2.distance,receiver3.distance);
- //for(i=0;i<3;i++){
- //  for(j=0;j<2;j++){
      data_arr[0][i]=receiver1.distance;  //x
      data_arr[1][i]=receiver2.distance;  //y
      data_arr[2][i]=receiver3.distance;  //z
 
-     pos_arr[0][0]= data_arr[0][i-1] //x
-     pos_arr[1][0]= data_arr[1][i-1] //y
-     pos_arr[2][0]= data_arr[2][i-1] //z
-     pos_arr[0][1]= data_arr[0][i]   //x
-     pos_arr[1][1]= data_arr[1][i]   //y
-     pos_arr[2][1]= data_arr[2][i]   //z
+     pos_arr[0][0]= data_arr[0][i-1]; //x
+     pos_arr[1][0]= data_arr[1][i-1]; //y
+     pos_arr[2][0]= data_arr[2][i-1]; //z
+     pos_arr[0][1]= data_arr[0][i];   //x
+     pos_arr[1][1]= data_arr[1][i];   //y
+     pos_arr[2][1]= data_arr[2][i];   //z
 
   kalman(pos_arr); 
      
      
->>>>>>> e71e0ddd19110df0f33fbf60a34145903071b88a
  delay(50);
  }
  return 0;
