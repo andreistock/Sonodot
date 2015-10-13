@@ -29,7 +29,7 @@ int main()
  t3.join();
  std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
  calculate(receiver1.distance,receiver2.distance,receiver3.distance);
- delay(50);
+ delay(52);
  }
  return 0;
 }
