@@ -17,3 +17,5 @@ You may want to change the used GPIO pin before compilation of the codesend.cpp 
 The 'RF\_Sniffer' code is as yet untested.  It _should_ work, but it is still being tested thoroughly.  It's provided to allow you to start playing with it now.
 # asdas
 # Sonodot
+to compile run this line g++-4.8 -std=c++11 RCSwitch.o -o main main.cpp -lwiringPi -pthread and change the files acordingly
+
