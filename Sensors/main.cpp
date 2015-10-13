@@ -7,7 +7,7 @@
 #define PIN 29
 int main()
 {
- setup();
+// setup();
  int code=5,i=0;
  RCSwitch mySwitch = RCSwitch();
  mySwitch.enableTransmit(PIN);
@@ -28,8 +28,8 @@ int main()
  t2.join();
  t3.join();
  std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
- calculate(receiver1.distance,receiver2.distance,receiver3.distance);
- delay(52);
+// calculate(receiver1.distance,receiver2.distance,receiver3.distance);
+ delay(50);
  }
  return 0;
 }
