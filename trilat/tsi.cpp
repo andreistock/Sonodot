@@ -2,8 +2,8 @@
 #include "tsi.hpp"
 #include<cmath>
 using namespace std;
-  static double r1,r2,r3,a,l,k,i,j,x,y,z,temp4,d;
-  static sphere sphere1,sphere2,sphere3,sphere4,temp1,e_x,temp2,temp3,e_y,e_z,p_12_a,p_12_b,temp6,temp5;
+  static double a,i,j,x,y,z,d,temp4;
+  static sphere sphere1,sphere2,sphere3,temp1,e_x,temp2,temp3,e_y,e_z,p_12_a,p_12_b,temp6,temp5;
 void setup()  
 {
   sphere1.setparam();
@@ -41,7 +41,7 @@ void calculate(double r1, double r2, double r3)
   disp(p_12_a);
   disp(p_12_b);
 }
-int test()
+void test()
 {
 setup();
 double cnt=10;
