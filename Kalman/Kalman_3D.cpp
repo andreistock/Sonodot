@@ -36,13 +36,6 @@ I = eye<mat>(n,n);
 
 // Generate measurement vector Y with white noise. 
 
-//for (j=0;j<t;j++) {
-//     y(0,j)= j +   b(j)/10;   //positions x
-//     y(1,j)= j +   c(j)/10;   //position y
-//     y(2,j)= 1.0;  //vx
-//     y(3,j)= 1.0;  //vy
-//}
-
 //Defines propagator model (no acceleration in this case)
 
   F << 1 << 0 << 0  << endr 
@@ -70,13 +63,10 @@ for (int i=0;i<t-1;i++) {
 
 }
 
-//x.row(0).print();
-//temp.row(0).print();
 
 data.close();
 
 
-//return 0;
 }
 
 
