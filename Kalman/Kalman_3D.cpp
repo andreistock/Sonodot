@@ -14,20 +14,15 @@ using namespace std;
 #define RAND rand
 #endif
 
-int main {
-  
-  double pos_arr[4] = {10.1, 1.0, 3.0, 3.0}; 
-  kalman(pos_arr); 
-  return 0;
-}
 
-void kalman(double pos_arr[]){
+
+void kalman(double pos_arr[3][2]){
 
 ofstream data;
 data.open ("data.txt");
 
 int i,j,k;
-int n=4, t=1;    //Define dimensions of state vector X 
+int n=3, t=2;    //Define dimensions of state vector X 
 
 
 // Define and initialise matrices
@@ -50,10 +45,10 @@ I = eye<mat>(n,n);
 
 //Defines propagator model (no acceleration in this case)
 
-  F << 1 << 0 << 1 <<0 << endr 
-    << 0 << 1 << 0 <<1 << endr
-    << 0 << 0 << 1 <<0 << endr
-    << 0 << 0 << 0 <<1 << endr;
+  F << 1 << 0 << 0  << endr 
+    << 0 << 1 << 0  << endr
+    << 0 << 0 << 1  << endr;
+ //   << 0 << 0 << 0 <<1 << endr;
 
 // No measurement error    
 P.eye(), H.eye();
@@ -82,5 +77,12 @@ data.close();
 
 
 //return 0;
+}
+
+int main() {
+  
+  double pos_arr[3][2] = {{10.1, 1.0, 3.0}, {10.1, 1.0, 3.0}}; 
+  kalman(pos_arr); 
+  return 0;
 }
 
