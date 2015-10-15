@@ -66,6 +66,7 @@ class receiver
       useconds=end.tv_usec-start.tv_usec;
       duration=((useconds)*1000+seconds/1000.0)+0.5;
       distance=(duration)/(29.1*2000);
+//      std::cout<<distance<<"  e"<<std::endl; 
       return distance;
       
     }
