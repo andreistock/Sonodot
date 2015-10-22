@@ -61,7 +61,7 @@ I = eye<mat>(n,n);
 P.eye(), H.eye();
 
 //Define the covariance matrices
-R.diag().fill(3);  
+R.diag().fill(5);  
 Q.fill(0.0000);
 
 //Time and measurement update performed together 
