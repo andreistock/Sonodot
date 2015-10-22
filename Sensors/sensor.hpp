@@ -7,7 +7,7 @@ class receiver
   protected:
     int trigPin;
     int echoPin;
-    timeval start,end;
+    struct timeval start,end;
     double duration,seconds,useconds;
   public:
     double distance; 
@@ -43,7 +43,7 @@ class receiver
     void init(void)
     {
       wiringPiSetup();
-      if (wiringPiSetup()==-1) std::cout<<"watch your language"<<std::endl;      
+      if (wiringPiSetup()==-1) std::cout<<"watch your language"<<std::endl;
       pinMode(echoPin,INPUT);
       pinMode(trigPin,OUTPUT);
     }
@@ -60,13 +60,15 @@ class receiver
       }
       while (digitalRead(echoPin)==1)
       {
-        gettimeofday(&end,NULL); 
+        gettimeofday(&end,NULL);
       }
       //seconds=end.tv_sec-start.tv_sec;
       useconds=end.tv_usec-start.tv_usec;
-      duration=((useconds)*1000)+0.5;
-      distance=(duration)/(29.1*1000);
+      seconds=end.tv_sec-start.tv_sec;
+      duration=((useconds)*1000+seconds/1000.0)+0.5;
+      distance=(duration)/(29.15*2000);
 //      std::cout<<distance<<"  e"<<std::endl; 
+//      std::cout<<duration<<std::endl;
       return distance;
       
     }

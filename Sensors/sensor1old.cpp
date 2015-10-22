@@ -86,7 +86,7 @@ int main(void)
   
    seconds=end.tv_sec-start.tv_sec;
    useconds=end.tv_usec-start.tv_usec;
-   duration=((useconds)*1000+seconds/1000.0)+0.5;
+   duration=((useconds*1.0)/1000+seconds*1000)+0.5;
    distance[1]=(duration)/(2*29.1);
   
   // if ((distance[i]>1000)&&(distance[i]<2000000))
