@@ -28,21 +28,16 @@ int main()
  std::thread t1(&receiver::dst,&receiver1);
  std::thread t2(&receiver::dst,&receiver2);
  std::thread t3(&receiver::dst,&receiver3);
-
-std::cout<<"receiver1"<<receiver1.distance <<"receiver2"<<receiver2.distance<< "receiver3"<<receiver3.distance  <<      std::endl;
  t1.join();
  t2.join();
  t3.join();
- std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
+// std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<"  "<<i<<std::endl;
  pos_arr[0][0]=tmp1;
  pos_arr[1][0]=tmp2;
  pos_arr[2][0]=tmp3;
  pos_arr[0][1]=receiver1.distance;
  pos_arr[1][1]=receiver2.distance;
  pos_arr[2][1]=receiver3.distance;
-
-
-
  tmp1= pos_arr[0][1];
  tmp2= pos_arr[1][1];
  tmp3= pos_arr[2][1];
@@ -52,10 +47,10 @@ std::cout<<"receiver1"<<receiver1.distance <<"receiver2"<<receiver2.distance<< "
  duration1=(abs(end.tv_usec-start1.tv_usec)/1000.0);
  duration=(abs(end.tv_usec-start.tv_usec)/1000.0);
 
-std::cout<<"receiver1"<<receiver1.distance <<"receiver2"<<receiver2.distance<< "receiver3"<<receiver3.distance  <<      std::endl;
+//std::cout<<"receiver1"<<receiver1.distance <<"receiver2"<<receiver2.distance<< "receiver3"<<receiver3.distance  <<      std::endl;
 
-// std::cout<<"time for Kalman / calculations "<<duration<< "  " << duration1<< std::endl;
- delay(50);//-duration1);
+ std::cout<<"time for Kalman / calculations "<<duration<< "  " << duration1<< std::endl;
+ delay(50-2.3);
 
 // gettimeofday(&end1,NULL);
 // duration1=((dend1.tv_usec-start1.tv_usec)*1000+(end1.tv_sec-start1.tv_sec)/1000)+0.5;
