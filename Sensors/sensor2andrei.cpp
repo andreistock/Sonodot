@@ -50,7 +50,7 @@ int main()
 //std::cout<<"receiver1"<<receiver1.distance <<"receiver2"<<receiver2.distance<< "receiver3"<<receiver3.distance  <<      std::endl;
 
  std::cout<<"time for Kalman / calculations "<<duration<< "  " << duration1<< std::endl;
- delay(50-2.3);
+ delay(50-duration1);
 
 // gettimeofday(&end1,NULL);
 // duration1=((dend1.tv_usec-start1.tv_usec)*1000+(end1.tv_sec-start1.tv_sec)/1000)+0.5;

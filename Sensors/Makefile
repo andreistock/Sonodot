@@ -1,14 +1,17 @@
-all: send codesend RFSniffer
+# Makefile for Writing Make Files Example
+# *****************************************************
+# Variables to control Makefile operation
 
-send: RCSwitch.o send.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
-	
-codesend: RCSwitch.o codesend.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
-	
-RFSniffer: RCSwitch.o RFSniffer.o
-	$(CXX) $(CXXFLAGS) $(LDFLAGS) $+ -o $@ -lwiringPi
-	
+CXX = g++-4.8 -std=c++11
+CXXFLAGS = -lwiringPi -pthread -Wall -larmadillo
 
-clean:
-	$(RM) *.o send codesend servo RFSniffer
+# ****************************************************
+# Targets needed to bring the executable up to date
+
+sensor2: sensor2.cpp Point.o RCSwitch.o
+	$(CXX) $(CXXFLAGS) -o sensor2 sensor2.cpp Point.o RCSwitch.o
+
+Point.o: Point.cpp
+         $(CXX) -c Point.o Point.cpp 
+RCSwitch.o: RCSwitch.o
+            $(CXX) -c RCSwitch.o RCSwitch.cpp

@@ -59,6 +59,7 @@ int main(void)
  
  while(true) 
  {
+//  delay(50);
   for (int i=1;i<=n;i++)
   {
    digitalWrite(trigPin[i],LOW);
