@@ -21,8 +21,8 @@ int main()
  {
 // mySwitch.send(code,24);
  receiver1.dst();
- receiver2.dst();
- receiver3.dst();
+// receiver2.dst();
+// receiver3.dst();
  std::cout<<receiver1.distance<<"  "<<receiver2.distance<<"  "<<receiver3.distance<<std::endl;
  i++;
  delay(50);

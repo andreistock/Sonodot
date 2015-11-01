@@ -61,13 +61,18 @@ class receiver
       while (digitalRead(echoPin)==1)
       {
         gettimeofday(&end,NULL);
+        seconds=end.tv_sec-start.tv_sec;
+        useconds=end.tv_usec-start.tv_usec;
+        duration=((useconds)*1000+seconds/1000.0)+0.5;  
+        if (duration/2 >=10000000)
+	  break;
       }
       seconds=end.tv_sec-start.tv_sec;
       useconds=end.tv_usec-start.tv_usec;
       duration=((useconds)*1000+seconds/1000.0)+0.5;
       distance=(duration)/(29.15*2000);
 //      std::cout<<distance<<"  e"<<std::endl; 
-//      std::cout<<duration<<std::endl;
+//      std::cout<<duration/2<<std::endl;
       return distance;
       
     }
