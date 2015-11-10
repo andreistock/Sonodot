@@ -16,37 +16,25 @@ class receiver
       switch (n)
       {
       case 1 :
-        trigPin=7;
-        echoPin=1;
+        trigPin=1;
+        echoPin=0;
 //        std::cout<<trigPin<<echoPin<<std::endl;
         break;
       case 2 :
-        trigPin=0;
-        echoPin=2;
+        trigPin=4;
+        echoPin=3;
         break;
       case 3 :
-        trigPin=3;
-        echoPin=4;
+        trigPin=26;
+        echoPin=22;
         break;
       case 4 :
-        trigPin=5;
-        echoPin=6;
+        trigPin=27;
+        echoPin=24;
         break;
       case 5 :
-        trigPin=21;
-        echoPin=26;
-        break;
-      case 6 :
-        trigPin=22;
-        echoPin=23;
-        break;
-      case 7 :
-        trigPin=24;
-        echoPin=27;
-        break;
-      case 8 :
-        trigPin=25;
-        echoPin=28;
+        trigPin=28;
+        echoPin=25;
         break;
       default:
         break;
