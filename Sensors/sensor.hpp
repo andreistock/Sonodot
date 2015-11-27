@@ -90,7 +90,7 @@ class receiver
         seconds=end.tv_sec-start.tv_sec;
         useconds=end.tv_usec-start.tv_usec;
         duration=((useconds)*1000+seconds/1000.0)+0.5;  
-        if (duration/2 >20000000)
+        if (duration/2 >10000000)
           {
           distance=0.2;
           goto mylabel;
@@ -99,20 +99,27 @@ class receiver
       mylabel :
       if ((distance==0.1)||(distance==0.2))
       {
-      return distance;
+        return distance;
       }
       else
       {
-      duration=0;
-      distance=0;
-      seconds=end.tv_sec-start.tv_sec;
-      useconds=end.tv_usec-start.tv_usec;
-      duration=((useconds)*1000+seconds/1000.0)+0.5;
-      distance=(duration)/(29.15*2000);
-//      std::cout<<distance<<"  e"<<std::endl; 
+        duration=0;
+        distance=0;
+        seconds=end.tv_sec-start.tv_sec;
+        useconds=end.tv_usec-start.tv_usec;
+        duration=((useconds)*1000+seconds/1000.0)+0.5;
+        distance=(duration)/(29.15*2000);
+ 
+       if (distance < 0)
+        {
+          return 0;
+        }
+// std::cout<<distance<<"  e"<<std::endl; 
 //      std::cout<<duration/2<<std::endl;
-      return distance;
-      
+        else
+        {
+        return distance;
+        }
       }
     }
 };
