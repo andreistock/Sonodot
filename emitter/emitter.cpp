@@ -26,7 +26,7 @@ int main()
       }
       else
       {
-//      printf("received %i\n",mySwitch.getReceivedValue() );
+        printf("received %i\n",mySwitch.getReceivedValue() );
     //    delay(3);
         while(true) 
         {
@@ -34,7 +34,7 @@ int main()
           std::thread t2(&receiver::dst,&receiver2);
           t1.join();
           t2.join();
-          delay(46);
+          delay(50);
         }
       }
 //  mySwitch.resetAvailable();
