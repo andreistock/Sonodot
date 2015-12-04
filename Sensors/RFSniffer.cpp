@@ -29,15 +29,20 @@ int main(int argc, char *argv[]) {
      mySwitch.enableReceive(PIN);  // Receiver on inerrupt 0 => that is pin #2
      
     
-     while(1) {
+     while(1)
+ {
   
-      if (mySwitch.available()) {
+      if (mySwitch.available())
+      {
     
         int value = mySwitch.getReceivedValue();
     
-        if (value == 0) {
+        if (value == 0)
+        {
           printf("Unknown encoding\n");
-        } else {    
+        } 
+        else
+        {    
    
           printf("Received %i\n", mySwitch.getReceivedValue() );
         }
@@ -47,7 +52,7 @@ int main(int argc, char *argv[]) {
       }
       
   
-  }
+ }
 
   exit(0);
 
