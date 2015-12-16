@@ -4,12 +4,15 @@
 #include<stdio.h>
 #include "/home/pi/Sonodot/Sensors/RCSwitch.h"
 #include<thread>
+#include<fstream>
 #include<chrono>
 #define PIN 29
 
 RCSwitch mySwitch;
 int main()
 {
+  std::ofstream data;
+  data.open("data1.txt");
   long long duration=0;
 
   int i=0;
@@ -38,17 +41,23 @@ int main()
         {
           auto begin = std::chrono::high_resolution_clock::now();
        ///////////////////////////////////////////////////////////////////
-          std::thread t1(&receiver::dst,&receiver1);
-//          receiver1.dst();
-          std::thread t2(&receiver::dst,&receiver2);
-          t1.join();
-          t2.join();
+//          std::thread t1(&receiver::dst,&receiver1);
+          receiver1.dst();
+//          std::thread t2(&receiver::dst,&receiver2);
+//          t1.join();
+//          t2.join();
           i++;
       ///////////////////////////////////////////////////////////////////////////
+//          auto end = std::chrono::high_resolution_clock::now();
+//          duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
+          tsleep.tv_nsec = 50000000;//-duration;
+          nanosleep(&tsleep,NULL);
           auto end = std::chrono::high_resolution_clock::now();
           duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
-          tsleep.tv_nsec = 50000000-duration;
-          nanosleep(&tsleep,NULL);
+
+
+          data<<duration<<"\n";
+          data.flush();
 //          if (i==20)
 //          { i=0;
 //            goto mylabel;
